@@ -3,17 +3,30 @@
 class RegistrationController extends Zend_Controller_Action
 {
 
+
+
     public function init()
     {
-        /* Initialize action controller here */
+
     }
 
     public function indexAction()
     {
+        session_start();
+        $form = new Application_Form_Register();
 
-       $form = new Application_Form_Register();
-       $this->view->form = $form;
+        if ($this->getRequest()->isPost()) {
+
+            if (!$form->isValid($this->getRequest()->getPost())) {
+                $this->view->form = $form;
+            } else {
+                $_SESSION['name'] = $this->getParam('username');
+                header('Location: http://hellozend.dev');
+            }
+
+        } else {
+            $this->view->form = $form;
+        }
     }
-
 }
 

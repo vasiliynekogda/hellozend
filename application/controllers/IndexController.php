@@ -3,22 +3,28 @@
 class IndexController extends Zend_Controller_Action
 {
 
+
     public function init()
     {
-        
+
     }
     public function indexAction()
     {
-
-        if (isset($_POST['name'])) {
-            $show = '<p>Hello, ' .$_POST['name']. '</p>';
+        session_start();
+        if (!empty($_SESSION['name'])) {
+            $greetings = 'Thank you for registration <b>' .$_SESSION['name']. '</b> on the "HelloZend" website </p>';
+            $this->view->display = $greetings;
+            $_SESSION['name'] = null;
         } else {
-            $show = new Application_Form_Login();
+            $this->view->display = new Application_Form_Login();
         }
-        $this->view->show = $show;
-
-
     }
 
+    public function loginAction()
+    {
+              session_start();
+              $_SESSION['name'] = $this->getParam('username');
+              return $this->_helper->redirector('index');
+    }
 }
 

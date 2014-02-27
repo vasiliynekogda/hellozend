@@ -6,11 +6,13 @@ class Application_Form_Login extends Zend_Form
 
     public function init()
     {
-        $this->setMethod('post');
-        $this->setAction('/');
-        $this->addElement('text', 'name', array('label' => 'Name'));
-        $this->addElement('password', 'password', array('label' => 'Password'));
-        $this->addElement('submit', 'login');
+        $this->setAction('/index/login')
+            ->setMethod('post');
+            // ->setElementsBelongTo('login');
+
+        $this->addElement('text', 'username', array('label' => 'Login'))
+            ->addElement('password', 'password',  array('label' => 'Password'))
+            ->addElement('submit', 'login', array('label' => 'Sign in'));
     }
 
 
