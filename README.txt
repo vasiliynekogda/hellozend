@@ -1,11 +1,11 @@
 INSTALL HELLOZEND
-1. Create somewhere on your computer folder 'hellozend'
+1. Create folder 'hellozend' somewhere on your computer
 2. Add 'application' and 'public' folders to created 'hellozend' folder
 3. If Zend Framework didn't configured on your server, you have to:
- - Create empty folder library/ inside 'hellozend',
+ - Create empty folder library/ inside 'hellozend'
  - Download Zend Framework 1.12 full from http://www.zend.com/en/company/community/downloads
  - Extract downloaded archive
- - Copying or symlinking it into your library/ directory. 
+ - Copying or symlinking it into your library/ directory
 4. Configure virtualhost
 
 Example
